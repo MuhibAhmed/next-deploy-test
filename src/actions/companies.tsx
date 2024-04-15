@@ -29,9 +29,13 @@ export async function scrapeTest(searchQuery: FormData) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://www.google.com");
-  await page.waitForSelector(`.${companyName}`, { timeout: 300000 }); // 5 min
-  console.log("Found it");
-  await page.screenshot({ path: "screenshot.png" });
+  try {
+    await page.waitForSelector(`.${companyName}`, { timeout: 300000 }); // 5 min
+    console.log("Found it");
+    await page.screenshot({ path: "screenshot.png" });
+  } catch (error) {
+    console.log("Not found it");
+  }
 
   await browser.close();
 }
