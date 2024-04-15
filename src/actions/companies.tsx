@@ -18,6 +18,10 @@ export async function scrapeCompanies(searchQuery: FormData) {
   return { companyName, address, status, sicCode };
 }
 
+export async function testing() {
+  console.log("test");
+  
+}
 export async function scrapeTest(searchQuery: FormData) {
   const companyName = searchQuery.get("company_name");
   console.log(companyName);
@@ -25,7 +29,7 @@ export async function scrapeTest(searchQuery: FormData) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://www.google.com");
-  await page.waitForSelector(`.${companyName}`, { timeout: 300000 });
+  await page.waitForSelector(`.${companyName}`, { timeout: 300000 }); // 5 min
   console.log("Found it");
   await page.screenshot({ path: "screenshot.png" });
 

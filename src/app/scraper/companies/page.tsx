@@ -1,4 +1,4 @@
-import { scrapeTest } from "@/actions/companies";
+import { scrapeTest, testing } from "@/actions/companies";
 import { Button, Input } from "@nextui-org/react";
 import React from "react";
 
@@ -6,7 +6,7 @@ function ScrapeCompanies() {
   return (
     <>
       <h1>Scrape Company</h1>
-      <form action={scrapeTest}>
+      <form action={testing}>
         <Input
           label="Company Name"
           labelPlacement="inside"
