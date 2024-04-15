@@ -20,11 +20,11 @@ export async function scrapeCompanies(searchQuery: FormData) {
 
 export async function testing() {
   console.log("test");
-  
 }
 export async function scrapeTest(searchQuery: FormData) {
   const companyName = searchQuery.get("company_name");
   console.log(companyName);
+  console.log("COMPANY: " + companyName);
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
